@@ -14,13 +14,15 @@ print("[OK] 音频系统就绪")
 detector = HandDetector()
 
 cap = cv2.VideoCapture(0, cv2.CAP_DSHOW)
-cap.set(cv2.CAP_PROP_FRAME_WIDTH, 1280)
-cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 720)
-for _ in range(5):
+cap.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
+cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
+cap.set(cv2.CAP_PROP_FPS, 60)
+cap.set(cv2.CAP_PROP_FOURCC, cv2.VideoWriter_fourcc(*'MJPG'))
+cap.set(cv2.CAP_PROP_BUFFERSIZE, 1)
+for _ in range(2):
     cap.read()
 
 cv2.namedWindow("Air Piano", cv2.WINDOW_NORMAL)
-cv2.setWindowProperty("Air Piano", cv2.WND_PROP_FULLSCREEN, cv2.WINDOW_FULLSCREEN)
 
 while True:
     ret, frame = cap.read()

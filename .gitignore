@@ -3,3 +3,5 @@ __pycache__/
 hand_landmarker.task
 change.docx
 skill/
+.env
+~$*
